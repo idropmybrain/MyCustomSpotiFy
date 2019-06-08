@@ -1,0 +1,17 @@
+.pl_2{
+  padding-left: 2px !important;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.shadow:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.mb_20{
+  margin-bottom: 20px;
+}

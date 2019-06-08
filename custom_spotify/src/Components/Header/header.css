@@ -1,0 +1,19 @@
+.searchBox {
+  background: #EDE9F4;
+  height: 35px;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  border-radius: 30px;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+
+.searchBoxInput{
+  height: 100%;
+  width: 100%;
+  outline: 0;
+  background: transparent;
+  padding: 3px 0 0 20px;
+}
