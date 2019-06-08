@@ -2,7 +2,7 @@
 
 import superagent from 'superagent';
 const methods = ['get', 'post', 'put', 'patch', 'del'];
-const HOSTNAME = 'http://localhost:3004';
+const HOSTNAME = 'https://api.spotify.com/v1';
 
 function formatUrl(path) {
   let apiPath = path;
@@ -14,7 +14,8 @@ function formatUrl(path) {
     apiPathArray.shift();
   }
 
-  const adjustedPath = HOSTNAME + (apiPathArray.length != 0 ? `?${apiPathArray.join('')}` : '');
+  // const adjustedPath = HOSTNAME + (apiPathArray.length != 0 ? `?${apiPathArray.join('')}` : '');
+  const adjustedPath = HOSTNAME + apiPath + (apiPathArray.length != 0 ? `?${apiPathArray.join('')}` : '');
   return adjustedPath;
 }
 
@@ -40,8 +41,8 @@ export default class ApiClient {
           request.set(headers);
         }
 
-        if (this.token) {
-          request.set('Authorization', `Bearer ${this.token}`);
+        if (true) {
+          request.set('Authorization', `Bearer BQAo7yQtJXcM_Y-nTfaEme5ADfdg6aB7DjmLjarpWNzIxY_g5Qiumu_jjBKJ-a3iF4lFMksWoBZXNPfVk7JRVwHaT6Oo0VUEEXNz4PJLqqXWZ-UIpHbKHNjxMEhiwcidEcOgqIXc8pPVnYIQyw5nhr84HRkSvWW_3_vkFJWGM4APTBDhAOhSsOXmBLOYNAVvW9ILUrxLeMDeuR4QtDUShP-nSqjG8QuNLMaioQjC1C5vvKaJpa05nF9Nr4yEgPtVoF1MBPO2XPLrWShBXad82Khgk8XySKnqQ9k6kQ`);
         }
 
         if (files) {
