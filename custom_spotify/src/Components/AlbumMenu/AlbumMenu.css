@@ -1,0 +1,4 @@
+.customScroll {
+height: calc(100vh - 260px - 200px);
+overflow: scroll;
+}
