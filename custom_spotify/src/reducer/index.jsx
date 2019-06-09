@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
-import posts from './post';
-
+// import posts from './post';
+import search from './search';
+import album from './album';
 const appReducer = combineReducers({
-  posts,
+  // posts,
+  search,
+  album,
 });
 
 // Setup root reducer

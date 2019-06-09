@@ -41,8 +41,8 @@ export default class ApiClient {
           request.set(headers);
         }
 
-        if (true) {
-          request.set('Authorization', `Bearer BQAo7yQtJXcM_Y-nTfaEme5ADfdg6aB7DjmLjarpWNzIxY_g5Qiumu_jjBKJ-a3iF4lFMksWoBZXNPfVk7JRVwHaT6Oo0VUEEXNz4PJLqqXWZ-UIpHbKHNjxMEhiwcidEcOgqIXc8pPVnYIQyw5nhr84HRkSvWW_3_vkFJWGM4APTBDhAOhSsOXmBLOYNAVvW9ILUrxLeMDeuR4QtDUShP-nSqjG8QuNLMaioQjC1C5vvKaJpa05nF9Nr4yEgPtVoF1MBPO2XPLrWShBXad82Khgk8XySKnqQ9k6kQ`);
+        if (sessionStorage.getItem('access_token')) {
+          request.set('Authorization', `Bearer ${sessionStorage.getItem('access_token')}`);
         }
 
         if (files) {
@@ -61,6 +61,8 @@ export default class ApiClient {
 
         request.end((err, response = {}) => {
           if (err) {
+            if(response.error.status === 401)
+              window.location.href = 'http://localhost:3000';
             reject(response.body || err);
           } else {
             if (response.text != '') {

@@ -19,7 +19,9 @@ class MySpotify extends Component{
 	    window.location.href = 'https://accounts.spotify.com/authorize?client_id=4054972931f64a02ac67dd408391548d&scope=playlist-read-private%20playlist-read-collaborative%20playlist-modify-public%20user-read-recently-played%20playlist-modify-private%20ugc-image-upload%20user-follow-modify%20user-follow-read%20user-library-read%20user-library-modify%20user-read-private%20user-read-email%20user-top-read%20user-read-playback-state&response_type=token&redirect_uri=http://localhost:3000/callback';
 	  } else {
 	    // this.props.setToken(hashParams.access_token);
+      sessionStorage.setItem('access_token', hashParams.access_token)
 	  }
+    console.log("Token: ", hashParams.access_token)
 
 	}
   
@@ -40,5 +42,6 @@ class MySpotify extends Component{
   }
   
 } 
+
 
 export default MySpotify;

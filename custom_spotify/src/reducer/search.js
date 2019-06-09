@@ -20,12 +20,13 @@ export default (state = initialState, action) => {
       };
     }
     case GET_SEARCH_SUCCESS: {
+      console.log(action);
       return {
         ...state,
         loading: false,
         error: false,
         loaded: true,
-        data: action.result
+        data: action.result.artists.items
       };
     }
     case GET_SEARCH_FAILURE: {
@@ -45,6 +46,6 @@ export default (state = initialState, action) => {
 export const searchArtist = (id) => {
   return {
     types: [GET_SEARCH_REQUESTED, GET_SEARCH_SUCCESS, GET_SEARCH_FAILURE],
-    promise: client => client.get(`/search?q=${id}&type=artist`),
+    promise: client => client.get(`/search?q=${id}&type=artist&limit=10`),
   };
 };
