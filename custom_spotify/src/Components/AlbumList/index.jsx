@@ -1,7 +1,7 @@
 import React,{ Component,Fragment } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import {getAlbum} from './../../reducer/album';
+import {getTracks} from './../../reducer/tracks';
 // import AlbumList from './../AlbumList'
 
 class AlbumList extends Component{
@@ -16,7 +16,8 @@ class AlbumList extends Component{
             <div className="d-flex flex-row flex-wrap">
               { this.props.data.items.map((item)=>
                 (
-                  <div className=" d-flex p-2" style={{'width':'33%'}}>
+                  <div className=" d-flex p-2" style={{'width':'33%'}}
+                    onClick={() => {this.props.getTracks(item)}}>
                     <div>
                       <img style={{height:'100%', width:'100%'}} src={item.images[0].url}/>
                     </div>
@@ -44,7 +45,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
   return bindActionCreators({
-    // getAlbum,
+    getTracks,
   }, dispatch);
 
 };

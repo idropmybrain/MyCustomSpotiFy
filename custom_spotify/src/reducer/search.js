@@ -46,6 +46,6 @@ export default (state = initialState, action) => {
 export const searchArtist = (id) => {
   return {
     types: [GET_SEARCH_REQUESTED, GET_SEARCH_SUCCESS, GET_SEARCH_FAILURE],
-    promise: client => client.get(`/search?q=${id}&type=artist&limit=10`),
+    promise: client => client.get(`/search?type=artist&q=${id}*&decorate_restrictions=true&best_match=true&include_external=audio&limit=10&userless=false&market=from_token`),
   };
 };
